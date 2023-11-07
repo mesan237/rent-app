@@ -1,15 +1,21 @@
-import React from 'react';
+import React from "react";
+import { Outlet } from "react-router-dom";
 
-import './App.css';
-import { Navbar, Sidebar } from './components';
-
+import "./App.css";
+import { Sidebar } from "./components";
+import ListeChambres from "./components/ListeChambres";
+import { Box } from "@mui/material";
 
 function App() {
   return (
-    <div className="App">
-      <Sidebar/>
-      <Navbar/>
-    </div>
+    <Box className="App">
+      {/* <Navbar /> */}
+      <Box className="app-container">
+        <Sidebar />
+
+        {/* <ListeChambres /> */}
+      </Box>
+    </Box>
   );
 }
 
