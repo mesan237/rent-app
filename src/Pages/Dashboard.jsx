@@ -100,7 +100,7 @@ const Dashboard = () => {
         }}
       >
         <Grid xs={3}>
-          <Item xs={3}>
+          <Item>
             <div style={nameCardStyle}>
               <GiReceiveMoney
                 style={{ ...iconStyle, backgroundColor: "#29d0b1" }}

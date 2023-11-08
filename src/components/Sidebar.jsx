@@ -19,8 +19,10 @@ import ListItemText from "@mui/material/ListItemText";
 import { categories } from "../utils/constants";
 import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
-
-const selectedCategory = "Dashboard";
+import PropTypes from "prop-types";
+import { Link as RouterLink, MemoryRouter } from "react-router-dom";
+import Link from "@mui/material/Link";
+import { useState } from "react";
 
 const drawerWidth = 240;
 
@@ -92,6 +94,11 @@ const Drawer = styled(MuiDrawer, {
 export default function Sidebar() {
   const theme = useTheme();
   const open = true;
+  const [selectedCategory, setSelectedCategory] = useState("Dashboard");
+
+  function handleActiveButton(categoryName) {
+    setSelectedCategory(categoryName);
+  }
 
   return (
     <Box sx={{ display: "flex", justifyContent: "space-around" }}>
@@ -128,6 +135,7 @@ export default function Sidebar() {
           >
             cite Mockpa
           </Typography>
+          <Divider />
           {/* <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
@@ -148,6 +156,9 @@ export default function Sidebar() {
               sx={{ display: "block" }}
             >
               <ListItemButton
+                onClick={() => handleActiveButton(category.name)}
+                component={RouterLink}
+                to={category.link}
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",
@@ -161,6 +172,8 @@ export default function Sidebar() {
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
+                    color:
+                      selectedCategory === category.name ? "#009688" : "#fff",
                   }}
                 >
                   {category.icon}
@@ -173,7 +186,6 @@ export default function Sidebar() {
             </ListItem>
           ))}
         </List>
-        <Divider />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1 }}>
         <DrawerHeader />

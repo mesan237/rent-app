@@ -75,21 +75,14 @@
 .selected-category,
 .sidebar .button:hover {
   background-color: #f0f1f3 !important;
-  border-left: 3px solid #f0f1f3 !important;
+  /* border-left: 3px solid #f0f1f3 !important; */
   color: #009688;
-  font-weight: "500";
+  font-weight: 500;
+  margin-right: 5px;
   cursor: pointer !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.sidebar .button:active {
-  background-color: rgba(255, 255, 255) !important;
-}
-
-.sidebar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
 .sidebar-header__icon {
   background-color: rgb(255, 255, 255);
   border-radius: 50%;
